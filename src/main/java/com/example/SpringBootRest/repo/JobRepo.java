@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public class JobRepo {
     List<JobPost> jobs = new ArrayList<>(Arrays.asList(
-            new JobPost(1, "Java", "Exp: 2", 1),
-            new JobPost(2, "C", "Exp: 2", 0),
-            new JobPost(1, "C++", "Exp: 3",4),
-            new JobPost(2, ".Net", "Exp: 1",2)
+            new JobPost(1, "Mobile Developer", "Exp: 2", 1, Arrays.asList("Android", "iOS")),
+            new JobPost(2, "C", "Exp: 2", 0, Arrays.asList("Embedded", "Kernel", "System", "IOT")),
+            new JobPost(3, "C++", "Exp: 3",4, Arrays.asList("Game", "Robotics", "Embedded")),
+            new JobPost(4, ".Net", "Exp: 1",2, Arrays.asList("WebApp", "Mobile"))
     ));
 
     public List<JobPost> getAllJobs() {
