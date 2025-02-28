@@ -2,6 +2,8 @@ package com.example.SpringBootRest.repo;
 
 import com.example.SpringBootRest.model.JobPost;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +25,14 @@ public class JobRepo {
     public void addJob(JobPost job) {
         jobs.add(job);
         System.out.println("Job added: " + job);
+    }
+
+    public JobPost getJob(int postId) {
+        for (JobPost job: jobs) {
+            if (job.getPostId() == postId)
+                return job;
+         }
+        return null;
     }
 
 }
