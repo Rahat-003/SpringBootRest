@@ -4,6 +4,7 @@ package com.example.SpringBootRest.controller;
 import com.example.SpringBootRest.model.JobPost;
 import com.example.SpringBootRest.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,4 +27,22 @@ public class JobRestController {
     public JobPost getJob(@PathVariable("postId") int postId) {
         return service.getJob(postId);
     }
+
+    @PutMapping("update")
+    public JobPost updateJob(@RequestBody JobPost jobPost) {
+        service.updateJob(jobPost);
+        return service.getJob(jobPost.getPostId());
+    }
+
+    @DeleteMapping("delete/{postId}")
+    public void deleteJob(@PathVariable("postId") int postId) {
+        service.deleteJob(postId);
+    }
+
+    @PostMapping("load")
+    public String loadData() {
+        service.load();
+        return "success";
+    }
+
 }
