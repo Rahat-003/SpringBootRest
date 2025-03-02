@@ -43,8 +43,10 @@ public class JobService {
                 new JobPost(4, ".Net Developer", "Build web and mobile applications using .NET", 2, Arrays.asList("WebApp", "Mobile"))
         ));
 
-
         repo.saveAll(jobs);
+    }
 
+    public List<JobPost> search(String keyword) {
+        return repo.findByPostProfileContainingOrPostDescContaining(keyword, keyword);
     }
 }
