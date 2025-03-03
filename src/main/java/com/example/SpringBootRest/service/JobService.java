@@ -47,6 +47,6 @@ public class JobService {
     }
 
     public List<JobPost> search(String keyword) {
-        return repo.findByPostProfileContainingOrPostDescContaining(keyword, keyword);
+            return repo.findByPostProfileContainingOrPostDescContaining(keyword, keyword);
     }
 }
